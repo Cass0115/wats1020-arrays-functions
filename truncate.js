@@ -16,8 +16,27 @@
 // This portion of the script is meant to call and display the result of your Function.
 // You do not need to change the following lines, but you may change them if you
 // are experimenting further or pursuing stretch goals.
+
+
+
+var truncateWords = function(originalText, wordLimit){
+  // Splitting the originalText into words, and making it an array:
+    var originalTextArray = originalText.split(' ');
+  // making the variable of the length of words:
+    var originalTextArrayLength = originalTextArray.length;
+  // Making the difference between the actual length of the sentence and the word limit we need:
+    var difference = originalTextArrayLength - wordLimit;
+  // Creating the ellipsis:
+    originalTextArray.splice(wordLimit, difference, '...');
+  // Joining the difference and splice together:
+    var finalOutput = originalTextArray.join(' ');
+  // the final output:
+    return finalOutput;
+}
+
 var originalText = "There are two hard things in Computer Science: Cach invalidation, naming things, and off-by-one errors.";
 var wordLimit = 8;
-var shortText = truncateWords(originalText, wordLimit);
-console.log('originalText: ' + originalText);
-console.log('shortText: ' + shortText);
+
+
+var truncated = truncateWords(originalText, wordLimit)
+console.log(truncated);
